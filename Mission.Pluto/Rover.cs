@@ -29,7 +29,8 @@ namespace Mission.Pluto.UnitTests
 
         internal void Move(char v)
         {
-            throw new NotImplementedException();
+            if (Face == 'N')
+                Y += 1;
         }
 
         private void RotateLeft()
