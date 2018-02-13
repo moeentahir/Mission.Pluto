@@ -21,7 +21,7 @@ namespace Mission.Pluto.UnitTests
         public void Move_Up_When_Facing_East()
         {
             var expected = 1;
-            var rover = new Rover(0, 0, 'N');
+            var rover = new Rover(0, 0, 'E');
             rover.Move('F');
             var actual = rover.X;
 

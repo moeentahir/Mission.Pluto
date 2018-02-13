@@ -31,6 +31,8 @@ namespace Mission.Pluto.UnitTests
         {
             if (Face == 'N')
                 Y += 1;
+            else if (Face == 'E')
+                X += 1;
         }
 
         private void RotateLeft()
