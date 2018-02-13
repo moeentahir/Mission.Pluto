@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rover_Movement_Tests.cs" />
+    <Compile Include="Rover_Multiple_Commands_Tests.cs" />
     <Compile Include="Rover_Rotation_Tests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -26,6 +26,11 @@ namespace Mission.Pluto.UnitTests
                 throw new InvalidOperationException($"Cannont handle command '{command}'");
         }
 
+        internal void HandleCommand(string command)
+        {
+            throw new NotImplementedException();
+        }
+
         private void Rotate(char direction)
         {
             if (direction == 'L')
