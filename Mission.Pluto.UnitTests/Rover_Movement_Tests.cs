@@ -7,14 +7,14 @@ namespace Mission.Pluto.UnitTests
     public class Rover_Movement_Tests
     {
         [TestMethod]
-        public void Move_Up_When_Facing_North()
+        [DataRow('N', 0, 1)]
+        public void Move_Up_When_Facing_North(char startingFace, int expectedX, int expectedY)
         {
-            var expected = 1;
             var rover = new Rover(0, 0, 'N');
             rover.Move('F');
-            var actual = rover.Y;
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedX, rover.X);
+            Assert.AreEqual(expectedY, rover.Y);
         }
 
         [TestMethod]
