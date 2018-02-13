@@ -1,4 +1,6 @@
-﻿namespace Mission.Pluto.UnitTests
+﻿using System;
+
+namespace Mission.Pluto.UnitTests
 {
     public class Rover
     {
@@ -23,6 +25,11 @@
             {
                 RotateRight();
             }
+        }
+
+        internal void Move(char v)
+        {
+            throw new NotImplementedException();
         }
 
         private void RotateLeft()
