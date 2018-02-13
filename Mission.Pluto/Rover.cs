@@ -28,6 +28,8 @@ namespace Mission.Pluto.UnitTests
 
         internal void HandleCommand(string commands)
         {
+            if (commands == null) return;
+
             foreach (var command in commands)
             {
                 HandleCommand(command);

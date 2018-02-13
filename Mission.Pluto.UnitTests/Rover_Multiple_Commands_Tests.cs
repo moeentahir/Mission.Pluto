@@ -20,5 +20,25 @@ namespace Mission.Pluto.UnitTests
             Assert.AreEqual(expectedY, rover.Y);
             Assert.AreEqual(expectedFace, rover.Face);
         }
+
+        [TestMethod]
+        [DataRow("FFXFF")]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void Invalid_COmmands_Should_Throw_Exception(string command)
+        {
+            var rover = new Rover(0, 0, 'N');
+
+            rover.HandleCommand(command);
+        }
+
+        [TestMethod]
+        [DataRow("")]
+        [DataRow(null)]
+        public void Empty_Or_Null_Command_Should_Do_Nothing(string command)
+        {
+            var rover = new Rover(0, 0, 'N');
+
+            rover.HandleCommand(command);
+        }
     }
 }
