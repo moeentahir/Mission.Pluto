@@ -4,7 +4,7 @@ namespace Mission.Pluto
 {
     public class Rover
     {
-        public Rover(int x, int y, char face)
+        public Rover(int x, int y, Direction face)
         {
             X = x;
             Y = y;
@@ -13,7 +13,7 @@ namespace Mission.Pluto
 
         public int X { get; set; }
         public int Y { get; set; }
-        public char Face { get; set; }
+        public Direction Face { get; set; }
 
 
         internal void HandleCommand(Command command)
@@ -66,50 +66,41 @@ namespace Mission.Pluto
 
         private void MoveForward()
         {
-            if (Face == 'N')
+            if (Face == Direction.North)
                 Y += 1;
-            else if (Face == 'E')
+            else if (Face == Direction.East)
                 X += 1;
-            else if (Face == 'S')
+            else if (Face == Direction.South)
                 Y -= 1;
-            else if (Face == 'W')
+            else if (Face == Direction.West)
                 X -= 1;
         }
 
         private void MoveBackwards()
         {
-            if (Face == 'N')
+            if (Face == Direction.North)
                 Y -= 1;
-            if (Face == 'E')
+            else if (Face == Direction.East)
                 X -= 1;
-            else if (Face == 'S')
+            else if (Face == Direction.South)
                 Y += 1;
-            else if (Face == 'W')
+            else if (Face == Direction.West)
                 X += 1;
         }
 
         private void RotateLeft()
         {
-            if (Face == 'N')
-                Face = 'W';
-            else if (Face == 'W')
-                Face = 'S';
-            else if (Face == 'S')
-                Face = 'E';
-            else if (Face == 'E')
-                Face = 'N';
+            var faceValue = (int)Face;
+            faceValue -= 1;
+            if (faceValue < 0) faceValue = 3;
+            Face = (Direction)faceValue;
         }
 
         private void RotateRight()
         {
-            if (Face == 'N')
-                Face = 'E';
-            else if (Face == 'E')
-                Face = 'S';
-            else if (Face == 'S')
-                Face = 'W';
-            else if (Face == 'W')
-                Face = 'N';
+            var faceValue = (int)Face;
+            faceValue = (faceValue + 1) % 4;
+            Face = (Direction)faceValue;
         }
     }
 }

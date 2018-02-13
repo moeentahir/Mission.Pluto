@@ -13,12 +13,12 @@ namespace Mission.Pluto.UnitTests
         [DataRow('W', -1, 0)]
         public void Move_Forward_When_Facing_In_Different_Directions(char startingFace, int expectedX, int expectedY)
         {
-            var rover = new Rover(0, 0, startingFace);
+            var rover = new Rover(0, 0, startingFace.ToDirection());
             rover.HandleCommand(Command.Forward);
 
             Assert.AreEqual(expectedX, rover.X);
             Assert.AreEqual(expectedY, rover.Y);
-            Assert.AreEqual(startingFace, rover.Face);
+            Assert.AreEqual(startingFace.ToDirection(), rover.Face);
         }
 
         [TestMethod]
@@ -28,12 +28,12 @@ namespace Mission.Pluto.UnitTests
         [DataRow('W', 1, 0)]
         public void Move_Backwards_When_Facing_In_Different_Directions(char startingFace, int expectedX, int expectedY)
         {
-            var rover = new Rover(0, 0, startingFace);
+            var rover = new Rover(0, 0, startingFace.ToDirection());
             rover.HandleCommand(Command.Backward);
 
             Assert.AreEqual(expectedX, rover.X);
             Assert.AreEqual(expectedY, rover.Y);
-            Assert.AreEqual(startingFace, rover.Face);
+            Assert.AreEqual(startingFace.ToDirection(), rover.Face);
         }
     }
 }

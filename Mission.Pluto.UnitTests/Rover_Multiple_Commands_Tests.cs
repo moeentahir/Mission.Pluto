@@ -12,13 +12,13 @@ namespace Mission.Pluto.UnitTests
         [DataRow("BLFFFLFFFRBLFRF", 'E', -5, 3, 'N')]
         public void Multiple_Simple_Commands_Without_Wrapping(string command, char startingFace, int expectedX, int expectedY, char expectedFace)
         {
-            var rover = new Rover(0, 0, startingFace);
+            var rover = new Rover(0, 0, startingFace.ToDirection());
 
             rover.HandleCommand(command);
 
             Assert.AreEqual(expectedX, rover.X);
             Assert.AreEqual(expectedY, rover.Y);
-            Assert.AreEqual(expectedFace, rover.Face);
+            Assert.AreEqual(expectedFace.ToDirection(), rover.Face);
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace Mission.Pluto.UnitTests
         [ExpectedException(typeof(InvalidOperationException))]
         public void Invalid_COmmands_Should_Throw_Exception(string command)
         {
-            var rover = new Rover(0, 0, 'N');
+            var rover = new Rover(0, 0, 'N'.ToDirection());
 
             rover.HandleCommand(command);
         }
@@ -36,7 +36,7 @@ namespace Mission.Pluto.UnitTests
         [DataRow(null)]
         public void Empty_Or_Null_Command_Should_Do_Nothing(string command)
         {
-            var rover = new Rover(0, 0, 'N');
+            var rover = new Rover(0, 0, 'N'.ToDirection());
 
             rover.HandleCommand(command);
         }
