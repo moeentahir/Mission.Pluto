@@ -14,7 +14,7 @@ namespace Mission.Pluto.UnitTests
         public void Rotating_Left_Should_Change_Direction_Anti_Clock_Wise(char startingFace, char expected)
         {
             var rover = new Rover(0, 0, startingFace);
-            rover.Rotate('L');
+            rover.HandleCommand('L');
             var actual = rover.Face;
 
             Assert.AreEqual(expected, actual);
@@ -28,7 +28,7 @@ namespace Mission.Pluto.UnitTests
         public void Rotating_Right_Should_Change_Direction_Clock_Wise(char startingFace, char expected)
         {
             var rover = new Rover(0, 0, startingFace);
-            rover.Rotate('R');
+            rover.HandleCommand('R');
             var actual = rover.Face;
 
             Assert.AreEqual(expected, actual);

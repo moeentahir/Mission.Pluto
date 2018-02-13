@@ -15,7 +15,18 @@ namespace Mission.Pluto.UnitTests
         public int Y { get; set; }
         public char Face { get; set; }
 
-        internal void Rotate(char direction)
+
+        internal void HandleCommand(char command)
+        {
+            if (command == 'L' || command == 'R')
+                Rotate(command);
+            else if (command == 'F' || command == 'B')
+                Move(command);
+            else
+                throw new InvalidOperationException($"Cannont handle command '{command}'");
+        }
+
+        private void Rotate(char direction)
         {
             if (direction == 'L')
             {
@@ -27,7 +38,7 @@ namespace Mission.Pluto.UnitTests
             }
         }
 
-        internal void Move(char direction)
+        private void Move(char direction)
         {
             if (direction == 'F')
             {
