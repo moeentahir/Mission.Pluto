@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mission.Pluto.UnitTests
+namespace Mission.Pluto
 {
     public class Rover
     {
@@ -16,11 +16,11 @@ namespace Mission.Pluto.UnitTests
         public char Face { get; set; }
 
 
-        internal void HandleCommand(char command)
+        internal void HandleCommand(Command command)
         {
-            if (command == 'L' || command == 'R')
+            if (command == Command.Left || command == Command.Right)
                 Rotate(command);
-            else if (command == 'F' || command == 'B')
+            else if (command == Command.Forward || command == Command.Backward)
                 Move(command);
             else
                 throw new InvalidOperationException($"Cannont handle command '{command}'");
@@ -32,32 +32,36 @@ namespace Mission.Pluto.UnitTests
 
             foreach (var command in commands)
             {
-                HandleCommand(command);
+                HandleCommand(command.ToCommand());
             }
         }
 
-        private void Rotate(char direction)
+        private void Rotate(Command direction)
         {
-            if (direction == 'L')
+            if (direction == Command.Left)
             {
                 RotateLeft();
             }
-            else if (direction == 'R')
+            else if (direction == Command.Right)
             {
                 RotateRight();
             }
+            else
+                throw new InvalidOperationException($"Cannont handle command {direction} to Rotate.");
         }
 
-        private void Move(char direction)
+        private void Move(Command direction)
         {
-            if (direction == 'F')
+            if (direction == Command.Forward)
             {
                 MoveForward();
             }
-            else if (direction == 'B')
+            else if (direction == Command.Backward)
             {
                 MoveBackwards();
             }
+            else
+                throw new InvalidOperationException($"Cannont handle command {direction} to Move.");
         }
 
         private void MoveForward()
