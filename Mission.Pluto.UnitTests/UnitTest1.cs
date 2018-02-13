@@ -75,6 +75,8 @@ namespace Mission.Pluto.UnitTests
                     Face = 'S';
                 else if (Face == 'S')
                     Face = 'E';
+                else if (Face == 'E')
+                    Face = 'N';
             }
         }
     }
