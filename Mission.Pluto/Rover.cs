@@ -33,7 +33,7 @@ namespace Mission.Pluto.UnitTests
                 Y += 1;
             else if (Face == 'E')
                 X += 1;
-            else if (Face == 'W')
+            else if (Face == 'S')
                 Y -= 1;
         }
 

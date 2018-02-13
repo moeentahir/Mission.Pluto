@@ -30,10 +30,10 @@ namespace Mission.Pluto.UnitTests
 
 
         [TestMethod]
-        public void Move_Up_When_Facing_West()
+        public void Move_Up_When_Facing_South()
         {
             var expected = -1;
-            var rover = new Rover(0, 0, 'W');
+            var rover = new Rover(0, 0, 'S');
             rover.Move('F');
             var actual = rover.Y;
 
