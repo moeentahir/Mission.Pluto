@@ -7,45 +7,14 @@ namespace Mission.Pluto.UnitTests
     public class RoverTests
     {
         [TestMethod]
-        public void When_Facing_North_Rotate_Left_Should_Face_West()
+        [DataRow('N','W')]
+        [DataRow('W', 'S')]
+        [DataRow('S', 'E')]
+        [DataRow('E', 'N')]
+        public void Rotating_Left_Should_Change_Direction_Anti_Clock_Wise(char startingFace, char expected)
         {
-            var rover = new Rover(0, 0, 'N');
+            var rover = new Rover(0, 0, startingFace);
             rover.Rotate('L');
-            var expected = 'W';
-            var actual = rover.Face;
-
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void When_Facing_West_Rotate_Left_Should_Face_South()
-        {
-            var rover = new Rover(0, 0, 'W');
-            rover.Rotate('L');
-            var expected = 'S';
-            var actual = rover.Face;
-
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void When_Facing_South_Rotate_Left_Should_Face_East()
-        {
-            var rover = new Rover(0, 0, 'S');
-            rover.Rotate('L');
-            var expected = 'E';
-            var actual = rover.Face;
-
-            Assert.AreEqual(expected, actual);
-        }
-
-
-        [TestMethod]
-        public void When_Facing_East_Rotate_Left_Should_Face_North()
-        {
-            var rover = new Rover(0, 0, 'E');
-            rover.Rotate('L');
-            var expected = 'N';
             var actual = rover.Face;
 
             Assert.AreEqual(expected, actual);
