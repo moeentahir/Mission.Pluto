@@ -7,16 +7,18 @@ namespace Mission.Pluto.UnitTests
     public class Rover_Multiple_Commands_Tests
     {
         [TestMethod]
-        public void Handle_Forward_Forward_Right_Forward_Forward_Command()
+        [DataRow("FFRFF", 'N', 2, 2, 'E')]
+        [DataRow("RFFFLLFFF", 'N', 0, 0, 'W')]
+        [DataRow("BLFFFLFFFRBLFRF", 'E', -5, 3, 'N')]
+        public void Multiple_Simple_Commands_Without_Wrapping(string command, char startingFace, int expectedX, int expectedY, char expectedFace)
         {
-            var command = "FFRFF";
-            var rover = new Rover(0, 0, 'N');
+            var rover = new Rover(0, 0, startingFace);
 
             rover.HandleCommand(command);
 
-            Assert.AreEqual(2, rover.X);
-            Assert.AreEqual(2, rover.Y);
-            Assert.AreEqual('E', rover.Face);
+            Assert.AreEqual(expectedX, rover.X);
+            Assert.AreEqual(expectedY, rover.Y);
+            Assert.AreEqual(expectedFace, rover.Face);
         }
     }
 }
