@@ -19,6 +19,17 @@ namespace Mission.Pluto.UnitTests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        [DataRow('N', 'E')]
+        public void Rotating_Right_Should_Change_Direction_Clock_Wise(char startingFace, char expected)
+        {
+            var rover = new Rover(0, 0, startingFace);
+            rover.Rotate('L');
+            var actual = rover.Face;
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 
     internal class Rover
