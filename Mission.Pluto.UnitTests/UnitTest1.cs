@@ -42,9 +42,15 @@ namespace Mission.Pluto.UnitTests
         public int Y { get; set; }
         public char Face { get; set; }
 
-        internal void Rotate(char v)
+        internal void Rotate(char direction)
         {
-            Face = 'W';
+            if (direction == 'L')
+            {
+                if (Face == 'N')
+                    Face = 'W';
+                else if (Face == 'W')
+                    Face = 'S';
+            }
         }
     }
 }
