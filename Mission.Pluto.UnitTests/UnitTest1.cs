@@ -38,6 +38,18 @@ namespace Mission.Pluto.UnitTests
 
             Assert.AreEqual(expected, actual);
         }
+
+
+        [TestMethod]
+        public void When_Facing_East_Rotate_Left_Should_Face_North()
+        {
+            var rover = new Rover(0, 0, 'E');
+            rover.Rotate('L');
+            var expected = 'N';
+            var actual = rover.Face;
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 
     internal class Rover
