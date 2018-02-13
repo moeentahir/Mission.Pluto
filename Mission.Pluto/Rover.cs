@@ -27,16 +27,24 @@ namespace Mission.Pluto.UnitTests
             }
         }
 
-        internal void Move(char v)
+        internal void Move(char direction)
         {
-            if (Face == 'N')
-                Y += 1;
-            else if (Face == 'E')
-                X += 1;
-            else if (Face == 'S')
-                Y -= 1;
-            else if (Face == 'W')
-                X -= 1;
+            if (direction == 'F')
+            {
+                if (Face == 'N')
+                    Y += 1;
+                else if (Face == 'E')
+                    X += 1;
+                else if (Face == 'S')
+                    Y -= 1;
+                else if (Face == 'W')
+                    X -= 1;
+            }
+            else if (direction == 'B')
+            {
+                if (Face == 'N')
+                    Y -= 1;
+            }
         }
 
         private void RotateLeft()
