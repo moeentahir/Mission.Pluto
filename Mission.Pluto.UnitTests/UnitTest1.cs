@@ -33,7 +33,7 @@ namespace Mission.Pluto.UnitTests
 
         internal void Rotate(char v)
         {
-            throw new NotImplementedException();
+            Face = 'W';
         }
     }
 }
