@@ -23,6 +23,7 @@ namespace Mission.Pluto.UnitTests
 
         [TestMethod]
         [DataRow('N', 0, -1)]
+        [DataRow('E', -1, 0)]
         public void Move_Backwards_When_Facing_In_Different_Directions(char startingFace, int expectedX, int expectedY)
         {
             var rover = new Rover(0, 0, startingFace);
