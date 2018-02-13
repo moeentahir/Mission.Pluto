@@ -8,48 +8,17 @@ namespace Mission.Pluto.UnitTests
     {
         [TestMethod]
         [DataRow('N', 0, 1)]
-        public void Move_Up_When_Facing_North(char startingFace, int expectedX, int expectedY)
+        [DataRow('E', 1, 0)]
+        [DataRow('S', 0, -1)]
+        [DataRow('W', -1, 0)]
+        public void Move_Forward_When_Facing_In_Different_Directions(char startingFace, int expectedX, int expectedY)
         {
-            var rover = new Rover(0, 0, 'N');
+            var rover = new Rover(0, 0, startingFace);
             rover.Move('F');
 
             Assert.AreEqual(expectedX, rover.X);
             Assert.AreEqual(expectedY, rover.Y);
-        }
-
-        [TestMethod]
-        public void Move_Up_When_Facing_East()
-        {
-            var expected = 1;
-            var rover = new Rover(0, 0, 'E');
-            rover.Move('F');
-            var actual = rover.X;
-
-            Assert.AreEqual(expected, actual);
-        }
-
-
-        [TestMethod]
-        public void Move_Up_When_Facing_South()
-        {
-            var expected = -1;
-            var rover = new Rover(0, 0, 'S');
-            rover.Move('F');
-            var actual = rover.Y;
-
-            Assert.AreEqual(expected, actual);
-        }
-
-
-        [TestMethod]
-        public void Move_Up_When_Facing_West()
-        {
-            var expected = -1;
-            var rover = new Rover(0, 0, 'W');
-            rover.Move('F');
-            var actual = rover.X;
-
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(startingFace, rover.Face);
         }
     }
 }
