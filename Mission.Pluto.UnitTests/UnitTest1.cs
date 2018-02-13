@@ -22,6 +22,7 @@ namespace Mission.Pluto.UnitTests
 
         [TestMethod]
         [DataRow('N', 'E')]
+        [DataRow('E', 'S')]
         public void Rotating_Right_Should_Change_Direction_Clock_Wise(char startingFace, char expected)
         {
             var rover = new Rover(0, 0, startingFace);
