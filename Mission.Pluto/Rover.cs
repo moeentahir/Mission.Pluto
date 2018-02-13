@@ -44,6 +44,8 @@ namespace Mission.Pluto.UnitTests
             {
                 if (Face == 'N')
                     Y -= 1;
+                if (Face == 'E')
+                    X -= 1;
             }
         }
 
