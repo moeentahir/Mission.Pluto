@@ -16,5 +16,16 @@ namespace Mission.Pluto.UnitTests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Move_Up_When_Facing_East()
+        {
+            var expected = 1;
+            var rover = new Rover(0, 0, 'N');
+            rover.Move('F');
+            var actual = rover.X;
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
