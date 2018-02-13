@@ -31,26 +31,36 @@ namespace Mission.Pluto.UnitTests
         {
             if (direction == 'F')
             {
-                if (Face == 'N')
-                    Y += 1;
-                else if (Face == 'E')
-                    X += 1;
-                else if (Face == 'S')
-                    Y -= 1;
-                else if (Face == 'W')
-                    X -= 1;
+                MoveForward();
             }
             else if (direction == 'B')
             {
-                if (Face == 'N')
-                    Y -= 1;
-                if (Face == 'E')
-                    X -= 1;
-                else if (Face == 'S')
-                    Y += 1;
-                else if (Face == 'W')
-                    X += 1;
+                MoveBackwards();
             }
+        }
+
+        private void MoveForward()
+        {
+            if (Face == 'N')
+                Y += 1;
+            else if (Face == 'E')
+                X += 1;
+            else if (Face == 'S')
+                Y -= 1;
+            else if (Face == 'W')
+                X -= 1;
+        }
+
+        private void MoveBackwards()
+        {
+            if (Face == 'N')
+                Y -= 1;
+            if (Face == 'E')
+                X -= 1;
+            else if (Face == 'S')
+                Y += 1;
+            else if (Face == 'W')
+                X += 1;
         }
 
         private void RotateLeft()
