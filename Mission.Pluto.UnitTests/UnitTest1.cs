@@ -52,26 +52,36 @@ namespace Mission.Pluto.UnitTests
         {
             if (direction == 'L')
             {
-                if (Face == 'N')
-                    Face = 'W';
-                else if (Face == 'W')
-                    Face = 'S';
-                else if (Face == 'S')
-                    Face = 'E';
-                else if (Face == 'E')
-                    Face = 'N';
+                RotateLeft();
             }
             else if (direction == 'R')
             {
-                if (Face == 'N')
-                    Face = 'E';
-                else if (Face == 'E')
-                    Face = 'S';
-                else if (Face == 'S')
-                    Face = 'W';
-                else if (Face == 'W')
-                    Face = 'N';
+                RotateRight();
             }
+        }
+
+        private void RotateLeft()
+        {
+            if (Face == 'N')
+                Face = 'W';
+            else if (Face == 'W')
+                Face = 'S';
+            else if (Face == 'S')
+                Face = 'E';
+            else if (Face == 'E')
+                Face = 'N';
+        }
+
+        private void RotateRight()
+        {
+            if (Face == 'N')
+                Face = 'E';
+            else if (Face == 'E')
+                Face = 'S';
+            else if (Face == 'S')
+                Face = 'W';
+            else if (Face == 'W')
+                Face = 'N';
         }
     }
 }
